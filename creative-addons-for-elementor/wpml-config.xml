@@ -1,0 +1,118 @@
+<wpml-config>
+    <elementor-widgets>
+        <widget name="crel-notification-box">
+            <conditions>
+                <condition key="widgetType">crel-notification-box</condition>
+            </conditions>
+            <fields>
+                <field type="Notification Box: Title" editor_type="LINE">crel_notificationBox__title_text</field>
+                <field type="Notification Box: Description" editor_type="VISUAL">crel_notificationBox__desc_text</field>
+                <field type="Notification Box: Link Text" editor_type="LINE">crel_notificationBox__button_text</field>
+                <field type="Creative Button: Link URL" editor_type="LINE">crel_notificationBox__button_URL</field>
+            </fields>
+        </widget>
+        <widget name="crel-advanced-heading">
+            <conditions>
+                <condition key="widgetType">crel-advanced-heading</condition>
+            </conditions>
+            <fields>
+                <field type="Advanced Heading: Title" editor_type="LINE">crel_advancedHeading__title_text</field>
+                <field type="Advanced Heading: Badge Text" editor_type="LINE">crel_advancedHeading__badge_text</field>
+                <field type="Advanced Heading: ID" editor_type="LINE">crel_advancedHeading__linkId</field>
+            </fields>
+        </widget>
+        <widget name="crel-steps">
+            <conditions>
+                <condition key="widgetType">crel-steps</condition>
+            </conditions>
+            <fields>
+                <field type="Steps: Title Prefix" editor_type="LINE">crel_steps__titlePrefix_text</field>
+            </fields>
+            <fields-in-item items_of="crel_steps__list">
+                <field type="Step: Title" editor_type="LINE">crel_steps__title_text</field>
+                <field type="Step: Text" editor_type="VISUAL">crel_steps__desc_text</field>
+                <field type="Step: Image Caption" editor_type="LINE">crel_steps__caption_text</field>
+                <field type="Step: Block ID" editor_type="LINE">crel_steps__block_id</field>
+            </fields-in-item>
+        </widget>
+        <widget name="crel-text-image">
+            <conditions>
+                <condition key="widgetType">crel-text-image</condition>
+            </conditions>
+            <fields>
+                <field type="Text Image: Caption" editor_type="LINE">crel_text_image__caption_text</field>
+                <field type="Text Image: Text" editor_type="LINE">crel_text_image__text</field>
+            </fields>
+        </widget>
+        <widget name="crel-image-guide">
+            <conditions>
+                <condition key="widgetType">crel-image-guide</condition>
+            </conditions>
+            <fields>
+                <field type="Image Guide: Caption" editor_type="LINE">crel_image_guide__caption_text</field>
+                <field type="Image Guide: Description" editor_type="VISUAL">crel_image_guide__description</field>
+            </fields>
+            <fields-in-item items_of="crel_image_guide__spots">
+                <field type="Image Guide Spot: Text" editor_type="VISUAL">crel_image_guide__spot_text</field>
+            </fields-in-item>
+        </widget>
+        <widget name="crel-features-list">
+            <conditions>
+                <condition key="widgetType">crel-features-list</condition>
+            </conditions>
+            <fields>
+                <field type="Features list: Title" editor_type="LINE">crel_features_list__title</field>
+                <field type="Features list: Subtitle" editor_type="LINE">crel_features_list__subtitle</field>
+                <field type="Features list: Top Description" editor_type="VISUAL">crel_features_list__top_description</field>
+                <field type="Features list: Bottom Description" editor_type="VISUAL">crel_features_list__bottom_description</field>
+                <field type="Features list: Link Text" editor_type="LINE">crel_features_list__link_text</field>
+                <field type="Features list: Link URL" editor_type="LINE">crel_features_list__link_url</field>
+            </fields>
+            <fields-in-item items_of="crel_features_list__list">
+                <field type="Features item: Title" editor_type="LINE">crel_features_list__item_title</field>
+                <field type="Features item: Text" editor_type="VISUAL">crel_features_list__item_text</field>
+                <field type="Features item: Link Text" editor_type="LINE">crel_features_list__item_link_text</field>
+                <field type="Features item: Link URL" editor_type="LINE">crel_features_list__item_link_url</field>
+            </fields-in-item>
+        </widget>
+        <widget name="crel-advanced-lists">
+            <conditions>
+                <condition key="widgetType">crel-advanced-lists</condition>
+            </conditions>
+            <fields>
+                <field type="Advanced Lists: Description" editor_type="VISUAL">crel_advancedLists__list_description</field>
+                <field type="Advanced Heading: List Items" editor_type="VISUAL">crel_advancedLists__list_text</field>
+            </fields>
+        </widget>
+        <widget name="crel-kb-search-box">
+            <conditions>
+                <condition key="widgetType">crel-kb-search-box</condition>
+            </conditions>
+            <fields>
+                <field type="KB Search: Title" editor_type="LINE">crel_kbSearchBox__title_text</field>
+                <field type="KB Search: Placeholder" editor_type="LINE">crel_kbSearchBox__inputPlaceholder_text</field>
+                <field type="KB Search: Button Text" editor_type="LINE">crel_kbSearchBox__Button_Text</field>
+                <field type="KB Search: All Results Text" editor_type="LINE">crel_kbSearchBox__allResults_text</field>
+                <field type="KB Search: Help Text" editor_type="LINE">crel_kbSearchBox__helpText_text</field>
+                <field type="KB Search: Help URL" editor_type="LINE">crel_kbSearchBox__HelpURL</field>
+            </fields>
+        </widget>
+        <widget name="crel-kb-recent-articles">
+            <conditions>
+                <condition key="widgetType">crel-kb-recent-articles</condition>
+            </conditions>
+            <fields>
+                <field type="KB Recent Articles: Title" editor_type="LINE">crel_kbRecentArticles__title_text</field>
+            </fields>
+        </widget>
+        <widget name="crel-kb-categories">
+            <conditions>
+                <condition key="widgetType">crel-kb-categories</condition>
+            </conditions>
+            <fields>
+                <field type="KB Categories: Title" editor_type="LINE">crel_kbCategories__title_text</field>
+                <field type="KB Categories: Category ID(s)" editor_type="LINE">crel_kbCategories__categories_ids_text</field>
+            </fields>
+        </widget>
+    </elementor-widgets>
+</wpml-config>
