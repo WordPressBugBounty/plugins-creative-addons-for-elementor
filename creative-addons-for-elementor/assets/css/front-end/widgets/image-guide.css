@@ -195,7 +195,7 @@ stretch - fills the whole height of the cell (this is the default)
       font-style: italic; }
     .crel-image-guide__container .crel-image-guide__list-text pre,
     .crel-image-guide__container .crel-image-guide__list-text code {
-      font-family: Courier New, monospace;
+      font-family: "Courier New", monospace;
       display: block;
       padding: 9.5px;
       margin: 0 0 10px;

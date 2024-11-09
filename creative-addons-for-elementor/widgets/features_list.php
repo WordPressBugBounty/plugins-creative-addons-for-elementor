@@ -1563,7 +1563,7 @@ class Features_List extends Creative_Widget_Base {
 								$image_url = Group_Control_Image_Size::get_attachment_image_src( $image_data['id'], 'image', $item );
 
 								$srcset = ( $item['image_size'] == 'custom' ) ? '' : wp_get_attachment_image_srcset( $image_data['id'], $item['image_size']);
-								if ( $srcset ) $srcset = 'srcset="' . $srcset . '"';
+
 
 							} else {
 								$image_alt = '';
@@ -1590,9 +1590,11 @@ class Features_List extends Creative_Widget_Base {
 								$image_url = Utils::get_placeholder_image_src();
 							} ?>
 
-                            <div class="crel-list-item__icon crel-list-item__icon--img">
-                                <div class="crel-list-item__icon__inner" style="<?php echo esc_attr( $style ); ?>"><img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr($image_alt); ?>" <?php echo esc_attr( $srcset ); ?> loading="lazy"></div>
-                            </div>				<?php
+							<div class="crel-list-item__icon crel-list-item__icon--img">
+								<div class="crel-list-item__icon__inner" style="<?php echo esc_attr( $style ); ?>">
+									<img src="<?php echo esc_url( $image_url ); ?>" alt="<?php echo esc_attr($image_alt); ?>" <?php if ( $srcset ) { echo 'srcset="' . esc_attr( $srcset ) . '"'; } ?> loading="lazy">
+								</div>
+							</div>			<?php
 						}                        ?>
 
                         <!----- Content ---------------->

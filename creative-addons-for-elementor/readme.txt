@@ -5,10 +5,10 @@ Contributors: echoplugins
 Tags: Elementor Page Builder, Elementor addons, Elementor Widgets, builder, knowledge base
 Requires at least: 5.4
 Requires PHP: 7.0
-Tested up to: 6.6
-Stable tag: 1.7.1
-Elementor tested up to: 3.19
-Elementor Pro tested up to: 3.19
+Tested up to: 6.7
+Stable tag: 1.8.0
+Elementor tested up to: 3.25
+Elementor Pro tested up to: 3.25
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,6 +181,12 @@ We provide the WordPress community with one of the most popular knowledge base p
 11. Echo Knowledge Base configuration
 
 == Changelog ==
+
+= 1.8.0, Nov 8, 2024 =
+* Update: WordPress 6.7
+
+= 1.7.1, Sept 29, 2024 =
+* Update: minor improvements and fixes
 
 = 1.7.1, Sept 29, 2024 =
 * Update: minor improvements and fixes

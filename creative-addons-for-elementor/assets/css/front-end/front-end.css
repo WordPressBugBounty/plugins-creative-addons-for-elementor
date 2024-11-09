@@ -2680,7 +2680,7 @@ stretch - fills the whole height of the cell (this is the default)
     font-style: italic; }
   .et_pb_pagebuilder_layout #left-area .creative-addons ul pre,
   .et_pb_pagebuilder_layout #left-area .creative-addons ul code {
-    font-family: Courier New, monospace;
+    font-family: "Courier New", monospace;
     display: block;
     padding: 9.5px;
     margin: 0 0 10px;

@@ -263,7 +263,7 @@ class New_Features_Page {
 	/**
 	 * Get Our Free Plugins boxes
 	 *
-	 * @return string
+	 * @return array[]
 	 */
 	private static function get_our_free_plugins_boxes() {
 
@@ -279,6 +279,8 @@ class New_Features_Page {
 			array( 'slug' => 'echo-knowledge-base' ),
 			array( 'slug' => 'help-dialog' ),
 			array( 'slug' => 'echo-show-ids' ),
+			array( 'slug' => 'scroll-down-arrow' ),
+			array( 'slug' => 'help-dialog' ),
 		);
 
 		foreach( $args_list as $args ) {
@@ -295,17 +297,17 @@ class New_Features_Page {
 		}
 
 		ob_start(); ?>
-        <div class="wrap recommended-plugins">
-            <div class="wp-list-table widefat plugin-install">
-                <div class="the-list">  <?php
+		<div class="wrap recommended-plugins">
+			<div class="wp-list-table widefat plugin-install">
+				<div class="the-list">  <?php
 
 					foreach( $our_free_plugins as $plugin ) {
 						self::display_our_free_plugin_box_html( $plugin );
 					}   ?>
 
-                </div>
-            </div>
-        </div>  <?php
+				</div>
+			</div>
+		</div>  <?php
 
 		return ob_get_clean();
 	}
@@ -317,24 +319,37 @@ class New_Features_Page {
 	 */
 	private static function display_our_free_plugin_box_html( $plugin ) {
 
-		$plugins_allowed_tags = array(
-			'a'       => array(
-				'href'   => array(),
-				'title'  => array(),
-				'target' => array(),
+		$links_allowed_tags = array(
+			'a' => array(
+				'id'		=> true,
+				'class'		=> true,
+				'href'		=> true,
+				'title'		=> true,
+				'target'	=> true,
+				'aria-*'	=> true,
+				'data-*'	=> true,
 			),
-			'abbr'    => array( 'title' => array() ),
-			'acronym' => array( 'title' => array() ),
-			'code'    => array(),
-			'pre'     => array(),
-			'em'      => array(),
-			'strong'  => array(),
-			'ul'      => array(),
-			'ol'      => array(),
-			'li'      => array(),
-			'p'       => array(),
-			'br'      => array(),
+			'button' => array(
+				'id'		=> true,
+				'class'		=> true,
+				'disabled'	=> true,
+				'type'		=> true,
+			),
 		);
+		$plugins_allowed_tags = array_merge_recursive( $links_allowed_tags, array(
+			'abbr'		=> array( 'title' => true ),
+			'acronym'	=> array( 'title' => true ),
+			'code'		=> array(),
+			'pre'		=> array(),
+			'em'		=> array(),
+			'strong'	=> array(),
+			'ul'		=> array(),
+			'ol'		=> array(),
+			'li'		=> array(),
+			'p'			=> array(),
+			'br'		=> array(),
+			'cite'		=> array(),
+		) );
 
 		if ( is_object( $plugin ) ) {
 			$plugin = (array) $plugin;
@@ -343,10 +358,9 @@ class New_Features_Page {
 		$title = wp_kses( $plugin['name'], $plugins_allowed_tags );
 
 		// remove any HTML from the description.
-		$description = wp_strip_all_tags( $plugin['short_description'] );
 		$version = wp_kses( $plugin['version'], $plugins_allowed_tags );
 
-		$name = wp_strip_all_tags( $title . ' ' . $version );
+		$name = empty( $plugin['short_description'] ) ? '' : esc_html( wp_strip_all_tags( $title . ' ' . $version ) );
 
 		$author = wp_kses( $plugin['author'], $plugins_allowed_tags );
 		if ( ! empty( $author ) ) {
@@ -388,36 +402,38 @@ class New_Features_Page {
 		}
 
 		$action_links = apply_filters( 'plugin_install_action_links', $action_links, $plugin );
-		$action_links = implode( '</li><li>', $action_links );
+		$action_links = empty( $action_links ) || ! is_array( $action_links ) ? array() : $action_links;
 
 		$last_updated_timestamp = strtotime( $plugin['last_updated'] ); ?>
 
-        <div class="plugin-card plugin-card-<?php echo sanitize_html_class( $plugin['slug'] ); ?>"> <?php
+		<div class="plugin-card plugin-card-<?php echo sanitize_html_class( $plugin['slug'] ); ?>"> <?php
 
 			self::display_our_free_plugin_incompatible_links( $compatible_php, $compatible_wp );  ?>
 
-            <div class="plugin-card-top">
-                <div class="name column-name">
-                    <h3>
-                        <a href="<?php echo esc_url( $details_link ); ?>" class="thickbox open-plugin-details-modal">		<?php
-	                        echo esc_html( $title ); ?>
-                            <img src="<?php echo esc_attr( $plugin_icon_url ); ?>" class="plugin-icon" alt="" />
-                        </a>
-                    </h3>
-                </div>
-                <div class="action-links">  <?php
-					if ( $action_links ) {  ?>
-                        <ul class="plugin-action-buttons"><li><?php echo wp_kses_post( $action_links ); ?></li></ul>   <?php
-					}   ?>
-                </div>
-                <div class="desc column-description">
-                    <p><?php echo esc_html( $description ); ?></p>
-                    <p class="authors"><?php echo wp_kses( $author, $plugins_allowed_tags ); ?></p>
-                </div>
-            </div>
+			<div class="plugin-card-top">
+				<div class="name column-name">
+					<h3>
+						<a href="<?php echo esc_url( $details_link ); ?>" class="thickbox open-plugin-details-modal">							<?php
+							echo esc_html( $title ); ?>
+							<img src="<?php echo esc_url( $plugin_icon_url ); ?>" class="plugin-icon" alt="" />
+						</a>
+					</h3>
+				</div>
+				<div class="action-links">
+					<ul class="plugin-action-buttons">	<?php
+						foreach ( $action_links as $one_link ) {	?>
+							<li><?php echo wp_kses( $one_link, $links_allowed_tags ); ?></li>	<?php
+						}	?>
+					</ul>
+				</div>
+				<div class="desc column-description">
+					<p><?php echo ( empty( $plugin['short_description'] ) ? '' : esc_html( wp_strip_all_tags( $plugin['short_description'] ) ) ); ?></p>
+					<p class="authors"><?php echo wp_kses( $author, $plugins_allowed_tags ); ?></p>
+				</div>
+			</div>
 
-            <div class="plugin-card-bottom">
-                <div class="vers column-rating">    <?php
+			<div class="plugin-card-bottom">
+				<div class="vers column-rating">    <?php
 					wp_star_rating(
 						array(
 							'rating' => $plugin['rating'],
@@ -425,20 +441,20 @@ class New_Features_Page {
 							'number' => $plugin['num_ratings'],
 						)
 					);  ?>
-                    <span class="num-ratings" aria-hidden="true">(<?php echo esc_html( number_format_i18n( $plugin['num_ratings'] ) ); ?>)</span>
-                </div>
-                <div class="column-updated">
-                    <strong><?php esc_html_e( 'Last Updated:' ); ?></strong>    <?php
+					<span class="num-ratings" aria-hidden="true">(<?php echo esc_html( number_format_i18n( $plugin['num_ratings'] ) ); ?>)</span>
+				</div>
+				<div class="column-updated">
+					<strong><?php esc_html_e( 'Last Updated:' ); ?></strong>    <?php
 					/* translators: %s: Human-readable time difference. */
-					printf( esc_html__( '%s ago' ), esc_html( human_time_diff( $last_updated_timestamp ) ) );   ?>
-                </div>
-                <div class="column-downloaded"> <?php
+					printf( esc_html__( '%s ago' ), human_time_diff( $last_updated_timestamp ) ); //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped   ?>
+				</div>
+				<div class="column-downloaded"> <?php
 					if ( $plugin['active_installs'] >= 1000000 ) {
 						$active_installs_millions = floor( $plugin['active_installs'] / 1000000 );
 						$active_installs_text     = sprintf(
 						/* translators: %s: Number of millions. */
 							_nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations' ),
-							esc_html( number_format_i18n( $active_installs_millions ) )
+							number_format_i18n( $active_installs_millions )
 						);
 					} elseif ( 0 == $plugin['active_installs'] ) {
 						$active_installs_text = _x( 'Less Than 10', 'Active plugin installations' );
@@ -447,18 +463,18 @@ class New_Features_Page {
 					}
 					/* translators: %s: Number of installations. */
 					printf( esc_html__( '%s Active Installations' ), esc_html( $active_installs_text ) );   ?>
-                </div>
-                <div class="column-compatibility">  <?php
+				</div>
+				<div class="column-compatibility">  <?php
 					if ( ! $tested_wp ) {   ?>
-                        <span class="compatibility-untested"><?php esc_html_e( 'Untested with your version of WordPress' ); ?></span>   <?php
+						<span class="compatibility-untested"><?php esc_html_e( 'Untested with your version of WordPress' ); ?></span>   <?php
 					} elseif ( ! $compatible_wp ) { ?>
-                        <span class="compatibility-incompatible"><?php esc_html_e( '<strong>Incompatible</strong> with your version of WordPress' ); ?></span>   <?php
+						<span class="compatibility-incompatible"><?php esc_html_e( 'Incompatible with your version of WordPress' ); ?></span>   <?php
 					} else {    ?>
-                        <span class="compatibility-compatible"><?php esc_html_e( '<strong>Compatible</strong> with your version of WordPress' ); ?></span>   <?php
+						<span class="compatibility-compatible"><?php esc_html_e( 'Compatible with your version of WordPress' ); ?></span>   <?php
 					}   ?>
-                </div>
-            </div>
-        </div>  <?php
+				</div>
+			</div>
+		</div>  <?php
 	}
 
 	/**
@@ -473,54 +489,54 @@ class New_Features_Page {
 			return;
 		}   ?>
 
-        <div class="notice inline notice-error notice-alt"><p>  <?php
+		<div class="notice inline notice-error notice-alt"><p>  <?php
 
-				if ( ! $compatible_php && ! $compatible_wp ) {
-					esc_html_e( 'This plugin doesn&#8217;t work with your versions of WordPress and PHP.' );
-					if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
-						/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
-						printf(
-							' ' . esc_html__( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
-							esc_url( self_admin_url( 'update-core.php' ) ),
-							esc_url( wp_get_update_php_url() )
-						);
-						wp_update_php_annotation( '</p><p><em>', '</em>' );
-					} elseif ( current_user_can( 'update_core' ) ) {
-						printf(
-						/* translators: %s: URL to WordPress Updates screen. */
-							' ' . esc_html__( '<a href="%s">Please update WordPress</a>.' ),
-							esc_url( self_admin_url( 'update-core.php' ) )
-						);
-					} elseif ( current_user_can( 'update_php' ) ) {
-						printf(
-						/* translators: %s: URL to Update PHP page. */
-							' ' . esc_html__( '<a href="%s">Learn more about updating PHP</a>.' ),
-							esc_url( wp_get_update_php_url() )
-						);
-						wp_update_php_annotation( '</p><p><em>', '</em>' );
-					}
-				} elseif ( ! $compatible_wp ) {
-					esc_html_e( 'This plugin doesn&#8217;t work with your version of WordPress.' );
-					if ( current_user_can( 'update_core' ) ) {
-						printf(
-						/* translators: %s: URL to WordPress Updates screen. */
-							' ' . esc_html__( '<a href="%s">Please update WordPress</a>.' ),
-							esc_url( self_admin_url( 'update-core.php' ) )
-						);
-					}
-				} elseif ( ! $compatible_php ) {
-					__( 'This plugin doesn&#8217;t work with your version of PHP.' );
-					if ( current_user_can( 'update_php' ) ) {
-						printf(
-						/* translators: %s: URL to Update PHP page. */
-							' ' . esc_html__( '<a href="%s">Learn more about updating PHP</a>.' ),
-							esc_url( wp_get_update_php_url() )
-						);
-						wp_update_php_annotation( '</p><p><em>', '</em>' );
-					}
-				}   ?>
+			if ( ! $compatible_php && ! $compatible_wp ) {
+				esc_html_e( 'This plugin doesn&#8217;t work with your versions of WordPress and PHP.' );
+				if ( current_user_can( 'update_core' ) && current_user_can( 'update_php' ) ) {
+					/* translators: 1: URL to WordPress Updates screen, 2: URL to Update PHP page. */
+					printf(
+						' ' . esc_html__( '<a href="%1$s">Please update WordPress</a>, and then <a href="%2$s">learn more about updating PHP</a>.' ),
+						esc_url( self_admin_url( 'update-core.php' ) ),
+						esc_url( wp_get_update_php_url() )
+					);
+					wp_update_php_annotation( '</p><p><em>', '</em>' );
+				} elseif ( current_user_can( 'update_core' ) ) {
+					printf(
+					/* translators: %s: URL to WordPress Updates screen. */
+						' ' . esc_html__( '<a href="%s">Please update WordPress</a>.' ),
+						esc_url( self_admin_url( 'update-core.php' ) )
+					);
+				} elseif ( current_user_can( 'update_php' ) ) {
+					printf(
+					/* translators: %s: URL to Update PHP page. */
+						' ' . esc_html__( '<a href="%s">Learn more about updating PHP</a>.' ),
+						esc_url( wp_get_update_php_url() )
+					);
+					wp_update_php_annotation( '</p><p><em>', '</em>' );
+				}
+			} elseif ( ! $compatible_wp ) {
+				esc_html_e( 'This plugin doesn&#8217;t work with your version of WordPress.' );
+				if ( current_user_can( 'update_core' ) ) {
+					printf(
+					/* translators: %s: URL to WordPress Updates screen. */
+						' ' . esc_html__( '<a href="%s">Please update WordPress</a>.' ),
+						esc_url( self_admin_url( 'update-core.php' ) )
+					);
+				}
+			} elseif ( ! $compatible_php ) {
+				__( 'This plugin doesn&#8217;t work with your version of PHP.' );
+				if ( current_user_can( 'update_php' ) ) {
+					printf(
+					/* translators: %s: URL to Update PHP page. */
+						' ' . esc_html__( '<a href="%s">Learn more about updating PHP</a>.' ),
+						esc_url( wp_get_update_php_url() )
+					);
+					wp_update_php_annotation( '</p><p><em>', '</em>' );
+				}
+			}   ?>
 
-            </p></div>  <?php
+		</p></div>  <?php
 	}
 
 	/**
