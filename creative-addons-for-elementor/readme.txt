@@ -6,7 +6,7 @@ Tags: Elementor Page Builder, Elementor addons, Elementor Widgets, builder, know
 Requires at least: 5.4
 Requires PHP: 7.0
 Tested up to: 6.7
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 Elementor tested up to: 3.25
 Elementor Pro tested up to: 3.25
 License: GPLv2 or later
@@ -181,6 +181,9 @@ We provide the WordPress community with one of the most popular knowledge base p
 11. Echo Knowledge Base configuration
 
 == Changelog ==
+
+= 1.8.1, Dec 2, 2024 =
+* Update: minor improvements and fixes
 
 = 1.8.0, Nov 8, 2024 =
 * Update: WordPress 6.7

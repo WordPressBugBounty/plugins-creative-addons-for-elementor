@@ -410,6 +410,8 @@ stretch - fills the whole height of the cell (this is the default)
   .crel-info-box-container.crel-info-box-icon--right .crel-info-box__body {
     text-align: right; }
 
+.crel-notification-box-container .crel-notification-box__icon .crel-notification-box__icon__inner {
+  line-height: 1em; }
 .crel-notification-box-container .crel-notification-box__icon--img,
 .crel-notification-box-container .crel-notification-box__icon--svg {
   box-sizing: content-box; }
@@ -1213,7 +1215,7 @@ stretch - fills the whole height of the cell (this is the default)
   .crel-steps-container .crel-step .crel-step-header .crel-step-header__inner--col {
     flex-direction: column;
     align-items: flex-start; }
-.crel-steps-container .crel-step .crel-step-body .elementor-row {
+.crel-steps-container .crel-step .crel-step-body .crel-row {
   width: 100%;
   display: flex; }
 .crel-steps-container .crel-step .crel-step-body .crel-steps-img {

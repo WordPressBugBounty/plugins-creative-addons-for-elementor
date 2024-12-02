@@ -141,7 +141,7 @@ stretch - fills the whole height of the cell (this is the default)
   .crel-steps-container .crel-step .crel-step-header .crel-step-header__inner--col {
     flex-direction: column;
     align-items: flex-start; }
-.crel-steps-container .crel-step .crel-step-body .elementor-row {
+.crel-steps-container .crel-step .crel-step-body .crel-row {
   width: 100%;
   display: flex; }
 .crel-steps-container .crel-step .crel-step-body .crel-steps-img {

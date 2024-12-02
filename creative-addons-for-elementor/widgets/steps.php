@@ -3966,8 +3966,8 @@ class Steps extends Creative_Widget_Base {
 					],
 					'selectors' => [
 						// layout-img-top
-						'{{WRAPPER}} .crel-layout-img-top .elementor-row:first-child .crel-step-body__col-both'    => 'padding-bottom: calc({{SIZE}}px / 2);',
-						'{{WRAPPER}} .crel-layout-img-top .elementor-row:last-child .crel-step-body__col-both'    => 'padding-top: calc({{SIZE}}px / 2);',
+						'{{WRAPPER}} .crel-layout-img-top .crel-row:first-child .crel-step-body__col-both'    => 'padding-bottom: calc({{SIZE}}px / 2);',
+						'{{WRAPPER}} .crel-layout-img-top .crel-row:last-child .crel-step-body__col-both'    => 'padding-top: calc({{SIZE}}px / 2);',
 						
 						// layout-img-right
 						'(desktop){{WRAPPER}} .crel-layout-img-right .crel-step-body__col-left'     => is_rtl() ? 'padding-left: calc({{SIZE}}px / 2);' : 'padding-right: calc({{SIZE}}px / 2);',
@@ -3978,8 +3978,8 @@ class Steps extends Creative_Widget_Base {
 						'(mobile){{WRAPPER}} .crel-layout-img-right .crel-step-body__col-right'    => 'padding-top: {{SIZE}}px; padding-left: 0; padding-right: 0;',
 						
 						// layout-img-below
-						'{{WRAPPER}} .crel-layout-img-below .elementor-row:first-child .crel-step-body__col-both'    => 'padding-bottom: calc({{SIZE}}px / 2);',
-						'{{WRAPPER}} .crel-layout-img-below .elementor-row:last-child .crel-step-body__col-both'    => 'padding-top: calc({{SIZE}}px / 2);',
+						'{{WRAPPER}} .crel-layout-img-below .crel-row:first-child .crel-step-body__col-both'    => 'padding-bottom: calc({{SIZE}}px / 2);',
+						'{{WRAPPER}} .crel-layout-img-below .crel-row:last-child .crel-step-body__col-both'    => 'padding-top: calc({{SIZE}}px / 2);',
 						
 						// layout-img-left 
 						'(desktop){{WRAPPER}} .crel-layout-img-left .crel-step-body__col-left'     => is_rtl() ? 'padding-left: calc({{SIZE}}px / 2);' : 'padding-right: calc({{SIZE}}px / 2);',
@@ -5235,7 +5235,7 @@ class Steps extends Creative_Widget_Base {
 				<!----- HEADER -------------->
 				<div class="crel-step-header">
 
-					<div class="elementor-row">
+					<div class="crel-row">
 						<div class="elementor-element elementor-column elementor-col-100 elementor-top-column">
 							<div class="elementor-column-wrap  elementor-element-populated">
 								<div class="elementor-widget-wrap">
@@ -5262,7 +5262,7 @@ class Steps extends Creative_Widget_Base {
 
 					<!----- TWO COLUMNS HTML IMG ON RIGHT ----------------------------------------------------------->
 					<?php if ( $item['crel_steps__layout_type'] === 'layout-img-right' ): ?>
-					<div class="elementor-row">
+					<div class="crel-row">
 
 						<!-- COL 1 TXT -->
 						<?php $this->render_text_column( $item['crel_steps__desc_text'], $leftCol, 'left', $key ) ?>
@@ -5274,7 +5274,7 @@ class Steps extends Creative_Widget_Base {
 
 					<!----- TWO COLUMNS HTML IMG ON LEFT ------------------------------------------------------------>
 					<?php elseif ( $item['crel_steps__layout_type'] === 'layout-img-left' ): ?>
-					<div class="elementor-row">
+					<div class="crel-row">
 
 						<!-- COL 1 IMG -->
 						<?php $this->render_img_column( $item['crel_steps__image'], $item ,$leftCol , 'left' ); ?>
@@ -5288,12 +5288,12 @@ class Steps extends Creative_Widget_Base {
 					<?php elseif ( $item['crel_steps__layout_type'] === 'layout-img-top' ): ?>
 
 					<!-- ROW 1 IMG -->
-					<div class="elementor-row">
+					<div class="crel-row">
 						<?php $this->render_img_column( $item['crel_steps__image'], $item ,'elementor-col-100', 'both' ); ?>
 					</div>
 
 					<!-- ROW 2 TXT -->
-					<div class="elementor-row">
+					<div class="crel-row">
 						<?php $this->render_text_column( $item['crel_steps__desc_text'], 'elementor-col-100', 'both', $key ) ?>
 					</div>
 
@@ -5301,12 +5301,12 @@ class Steps extends Creative_Widget_Base {
 					<?php elseif ( $item['crel_steps__layout_type'] === 'layout-img-below' ): ?>
 
 					<!-- ROW 1 TXT -->
-					<div class="elementor-row">
+					<div class="crel-row">
 						<?php $this->render_text_column( $item['crel_steps__desc_text'], 'elementor-col-100', 'both', $key ) ?>
 					</div>
 
 					<!-- ROW 2 IMG -->
-					<div class="elementor-row">
+					<div class="crel-row">
 						<?php $this->render_img_column( $item['crel_steps__image'], $item ,'elementor-col-100', 'both' ); ?>
 					</div>
 
@@ -5315,7 +5315,7 @@ class Steps extends Creative_Widget_Base {
 					<?php elseif ( $item['crel_steps__layout_type'] === 'no-image' ): ?>
 
 					<!-- ROW 1 TXT -->
-					<div class="elementor-row">
+					<div class="crel-row">
 						<?php $this->render_text_column( $item['crel_steps__desc_text'], 'elementor-col-100', 'both', $key ) ?>
 					</div>
 
@@ -5420,7 +5420,7 @@ class Steps extends Creative_Widget_Base {
 				<div class="crel-step elementor-repeater-item-{{{item._id}}}" id="{{{ titleID }}}" >
 
 					<!----- HEADER -------------->
-					<div class="crel-step-header"><div class="elementor-row"><div class="elementor-element elementor-column elementor-col-100 elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-heading">
+					<div class="crel-step-header"><div class="crel-row"><div class="elementor-element elementor-column elementor-col-100 elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-heading">
 						<div class="crel-step-header__inner {{{ settings.crel_steps__header_layout }}} elementor-widget-container">
 
 							<div class="crel-step-header__step-container {{{ settings.crel_steps__prefixCounterContainer_layout }}} " >
@@ -5478,7 +5478,7 @@ class Steps extends Creative_Widget_Base {
 						<!----- TWO COLUMNS HTML IMG ON RIGHT ----------------------------------------------------------->
 						<# if ( item.crel_steps__layout_type == 'layout-img-right' ) { #>
 						
-							<div class="elementor-row">
+							<div class="crel-row">
 
 								<!-- COL 1 TXT -->
 								<div class="elementor-element elementor-column crel-step-body__col-left {{{ leftCol }}} elementor-top-column">
@@ -5528,7 +5528,7 @@ class Steps extends Creative_Widget_Base {
 						<# } else if ( item.crel_steps__layout_type == 'layout-img-left' ) { #>
 						<!----- TWO COLUMNS HTML IMG ON LEFT ------------------------------------------------------------>
 						
-							<div class="elementor-row">
+							<div class="crel-row">
 								
 								<!-- COL 2 IMG -->
 								<div class="elementor-element elementor-column crel-step-body__col-left {{{ leftCol }}} elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="elementor-widget-container"><div class="crel-steps-img elementor-image"><#
@@ -5580,7 +5580,7 @@ class Steps extends Creative_Widget_Base {
 						<# } else if ( item.crel_steps__layout_type == 'layout-img-top' ) { #>
 
 						<!-- ROW 1 IMG -->
-						<div class="elementor-row">
+						<div class="crel-row">
 							
 							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="elementor-widget-container"><div class="crel-steps-img elementor-image"><#
 									if ( item.crel_steps__caption_text ) { #>
@@ -5606,7 +5606,7 @@ class Steps extends Creative_Widget_Base {
 						</div>
 
 						<!-- ROW 2 TXT -->
-						<div class="elementor-row">
+						<div class="crel-row">
 							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column">
 								<div class="elementor-column-wrap  elementor-element-populated">
 									<div class="elementor-widget-wrap">
@@ -5633,7 +5633,7 @@ class Steps extends Creative_Widget_Base {
 						<# } else if ( item.crel_steps__layout_type == 'layout-img-below' ) { #>
 
 						<!-- ROW 2 TXT -->
-						<div class="elementor-row">
+						<div class="crel-row">
 							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column">
 								<div class="elementor-column-wrap  elementor-element-populated">
 									<div class="elementor-widget-wrap">
@@ -5658,7 +5658,7 @@ class Steps extends Creative_Widget_Base {
 						
 
 						<!-- ROW 1 IMG -->
-						<div class="elementor-row">
+						<div class="crel-row">
 							
 							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="elementor-widget-container"><div class="crel-steps-img elementor-image"><#
 									if ( item.crel_steps__caption_text ) { #>
@@ -5685,7 +5685,7 @@ class Steps extends Creative_Widget_Base {
 						} else if ( item.crel_steps__layout_type == 'no-image' ) { #>
 
 						<!-- ROW 2 TXT -->
-						<div class="elementor-row">
+						<div class="crel-row">
 							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column">
 								<div class="elementor-column-wrap  elementor-element-populated">
 									<div class="elementor-widget-wrap">

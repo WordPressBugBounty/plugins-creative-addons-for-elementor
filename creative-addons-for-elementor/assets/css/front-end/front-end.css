@@ -2852,7 +2852,15 @@ stretch - fills the whole height of the cell (this is the default)
   		}
   	}
   
-  	*/ }
+  	*/
+  /*
+   * Added the Steps CSS here for backward compatibility.
+   * Normally, older users would need to resave the page to receive the latest CSS changes.
+   * This code ensures they get the updates immediately without making any edits to their website.
+   * The CSS for the Steps widget is also applied to the Steps CSS file for new users.
+   * This was added on 12/01/24.
+   * We may potentially remove this code in the future.
+   */ }
   .creative-addons .crel-steps-container .crel-step-header__title__text {
     margin: 0;
     padding: 0;
@@ -2924,3 +2932,6 @@ stretch - fills the whole height of the cell (this is the default)
       transition: 0.2s; }
       .creative-addons .crel-kb_required .crel-kb_required-buttons a:hover {
         opacity: 0.85; }
+  .creative-addons .crel-steps-container .crel-row {
+    width: 100%;
+    display: flex; }

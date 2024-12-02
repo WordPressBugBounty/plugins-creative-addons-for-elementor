@@ -1,3 +1,5 @@
+.crel-notification-box-container .crel-notification-box__icon .crel-notification-box__icon__inner {
+  line-height: 1em; }
 .crel-notification-box-container .crel-notification-box__icon--img,
 .crel-notification-box-container .crel-notification-box__icon--svg {
   box-sizing: content-box; }
