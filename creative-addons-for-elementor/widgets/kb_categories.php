@@ -1149,15 +1149,13 @@ class KB_Categories extends Creative_Widget_Base {
 			]
 		);
 
-			// Typography
-			$this->add_group_control(
-				'typography',
-				[
-					'name' => 'crel_kbCategories__cat_typography',
-					'selector' => '{{WRAPPER}} .crel-kb-cat-list-item__item a',
-					'scheme' => Schemes\Typography::TYPOGRAPHY_3,
-				]
-			);
+		$this->add_group_control(
+			\Elementor\Group_Control_Typography::get_type(),
+			[
+				'name' => 'crel_kbCategories__cat_typography',
+				'selector' => '{{WRAPPER}} .crel-kb-cat-list-item__item a',
+			]
+		);
 
 			// Fixed Width Toggle
 			$this->add_control(

@@ -3,7 +3,7 @@
  * Plugin Name: Creative Addons for Elementor
  * Plugin URI: https://www.creative-addons.com
  * Description: Creative Addons makes writing professional documents and articles easy.
- * Version: 1.8.1
+ * Version: 1.8.2
  * Elementor tested up to: 3.25
  * Elementor Pro tested up to: 3.25
  * Author: Echo Plugins
@@ -29,7 +29,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'CREATIVE_ADDONS_VERSION', '1.8.1' );
+define( 'CREATIVE_ADDONS_VERSION', '1.8.2' );
 define( 'CREATIVE_ADDONS_PLUGIN_NAME', 'Creative Addons for Elementor' );
 define( 'CREATIVE_ADDONS_MINIMUM_ELEMENTOR_VERSION', '2.7.0' );
 define( 'CREATIVE_ADDONS_MINIMUM_PHP_VERSION', '7.0' );
