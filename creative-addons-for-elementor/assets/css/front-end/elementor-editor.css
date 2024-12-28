@@ -1270,6 +1270,10 @@ stretch - fills the whole height of the cell (this is the default)
   counter-reset: levelOneItem; }
   .crel-steps-container.crel-steps--disc .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--circle .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--square .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--lower-alpha .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--upper-alpha .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--decimal .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--decimal-leading-zero .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--lower-roman .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--lower-greek .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--armenian .crel-step-header__step__counter:before, .crel-steps-container.crel-steps--georgian .crel-step-header__step__counter:before {
     counter-increment: levelOneItem; }
+.crel-steps-container .crel-elementor-column-wrap {
+  width: 100%;
+  position: relative;
+  display: flex; }
 
 .crel-steps--link-icon-hover .crel-step-header__inner__title:hover .crel-step-header__title__link {
   display: block !important; }

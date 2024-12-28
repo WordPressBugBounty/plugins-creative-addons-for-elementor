@@ -5143,10 +5143,10 @@ class Steps extends Creative_Widget_Base {
 		$this->add_inline_editing_attributes( $field_key, 'advanced' );	?>
 
 		<div class="elementor-element elementor-column crel-step-body__col-<?php echo esc_attr( $side ); ?> <?php echo esc_attr( $col_size ); ?> elementor-top-column">
-			<div class="elementor-column-wrap  elementor-element-populated">
+			<div class="crel-elementor-column-wrap  elementor-element-populated">
 				<div class="elementor-widget-wrap">
 					<div class="elementor-element elementor-widget elementor-widget-text-editor">
-						<div class="elementor-widget-container">
+						<div class="crel-elementor-widget-container">
 							<div <?php
 								//phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								echo $this->get_render_attribute_string( $field_key ); ?>>								<?php
@@ -5161,10 +5161,10 @@ class Steps extends Creative_Widget_Base {
 
 	private function render_img_column( $image , $settings, $col_size, $side ) { ?>
 		<div class="elementor-element elementor-column crel-step-body__col-<?php echo esc_attr( $side ); ?> <?php echo esc_attr( $col_size ); ?> elementor-top-column">
-			<div class="elementor-column-wrap  elementor-element-populated">
+			<div class="crel-elementor-column-wrap  elementor-element-populated">
 				<div class="elementor-widget-wrap">
 					<div class="elementor-element elementor-widget elementor-widget-image">
-						<div class="elementor-widget-container">
+						<div class="crel-elementor-widget-container">
 							<?php $this->render_steps_image( $image, $settings ); ?>
 						</div>
 					</div>
@@ -5237,10 +5237,10 @@ class Steps extends Creative_Widget_Base {
 
 					<div class="crel-row">
 						<div class="elementor-element elementor-column elementor-col-100 elementor-top-column">
-							<div class="elementor-column-wrap  elementor-element-populated">
+							<div class="crel-elementor-column-wrap  elementor-element-populated">
 								<div class="elementor-widget-wrap">
 									<div class="elementor-element elementor-widget elementor-widget-heading">
-										<div class="crel-step-header__inner <?php echo esc_attr( $headerLayout ); ?> elementor-widget-container">
+										<div class="crel-step-header__inner <?php echo esc_attr( $headerLayout ); ?> crel-elementor-widget-container">
 
 											<div class="crel-step-header__step-container <?php echo esc_attr( $prefix_counter_layout ); ?>">
 												<div class="crel-step-header__step__prefix"><?php echo esc_html( $prefix ); ?></div>
@@ -5420,8 +5420,8 @@ class Steps extends Creative_Widget_Base {
 				<div class="crel-step elementor-repeater-item-{{{item._id}}}" id="{{{ titleID }}}" >
 
 					<!----- HEADER -------------->
-					<div class="crel-step-header"><div class="crel-row"><div class="elementor-element elementor-column elementor-col-100 elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-heading">
-						<div class="crel-step-header__inner {{{ settings.crel_steps__header_layout }}} elementor-widget-container">
+					<div class="crel-step-header"><div class="crel-row"><div class="elementor-element elementor-column elementor-col-100 elementor-top-column"><div class="crel-elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-heading">
+						<div class="crel-step-header__inner {{{ settings.crel_steps__header_layout }}} crel-elementor-widget-container">
 
 							<div class="crel-step-header__step-container {{{ settings.crel_steps__prefixCounterContainer_layout }}} " >
 								<div class="crel-step-header__step__prefix">{{{ settings.crel_steps__titlePrefix_text }}}</div>
@@ -5482,10 +5482,10 @@ class Steps extends Creative_Widget_Base {
 
 								<!-- COL 1 TXT -->
 								<div class="elementor-element elementor-column crel-step-body__col-left {{{ leftCol }}} elementor-top-column">
-									<div class="elementor-column-wrap  elementor-element-populated">
+									<div class="crel-elementor-column-wrap  elementor-element-populated">
 										<div class="elementor-widget-wrap">
 											<div class="elementor-element elementor-widget elementor-widget-text-editor">
-												<div class="elementor-widget-container"><#
+												<div class="crel-elementor-widget-container"><#
 													var desc_key = view.getRepeaterSettingKey( 'crel_steps__desc_text', 'crel_steps__list', index );
 													
 													view.addRenderAttribute( desc_key,	{
@@ -5503,7 +5503,7 @@ class Steps extends Creative_Widget_Base {
 								</div>
 								
 								<!-- COL 2 IMG -->
-								<div class="elementor-element elementor-column crel-step-body__col-right {{{ rightCol }}} elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="elementor-widget-container"><div class="crel-steps-img elementor-image"><#
+								<div class="elementor-element elementor-column crel-step-body__col-right {{{ rightCol }}} elementor-top-column"><div class="crel-elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="crel-elementor-widget-container"><div class="crel-steps-img elementor-image"><#
 									if ( item.crel_steps__caption_text ) { #>
 										<figure class="crel-caption">		    <#
 									}
@@ -5531,7 +5531,7 @@ class Steps extends Creative_Widget_Base {
 							<div class="crel-row">
 								
 								<!-- COL 2 IMG -->
-								<div class="elementor-element elementor-column crel-step-body__col-left {{{ leftCol }}} elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="elementor-widget-container"><div class="crel-steps-img elementor-image"><#
+								<div class="elementor-element elementor-column crel-step-body__col-left {{{ leftCol }}} elementor-top-column"><div class="crel-elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="crel-elementor-widget-container"><div class="crel-steps-img elementor-image"><#
 									if ( item.crel_steps__caption_text ) { #>
 										<figure class="crel-caption">		    <#
 									}
@@ -5554,10 +5554,10 @@ class Steps extends Creative_Widget_Base {
 								
 								<!-- COL 1 TXT -->
 								<div class="elementor-element elementor-column crel-step-body__col-right {{{ rightCol }}} elementor-top-column">
-									<div class="elementor-column-wrap  elementor-element-populated">
+									<div class="crel-elementor-column-wrap  elementor-element-populated">
 										<div class="elementor-widget-wrap">
 											<div class="elementor-element elementor-widget elementor-widget-text-editor">
-												<div class="elementor-widget-container"><#
+												<div class="crel-elementor-widget-container"><#
 													var desc_key = view.getRepeaterSettingKey( 'crel_steps__desc_text', 'crel_steps__list', index );
 													
 													view.addRenderAttribute( desc_key,	{
@@ -5582,7 +5582,7 @@ class Steps extends Creative_Widget_Base {
 						<!-- ROW 1 IMG -->
 						<div class="crel-row">
 							
-							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="elementor-widget-container"><div class="crel-steps-img elementor-image"><#
+							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column"><div class="crel-elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="crel-elementor-widget-container"><div class="crel-steps-img elementor-image"><#
 									if ( item.crel_steps__caption_text ) { #>
 										<figure class="crel-caption">		    <#
 									}
@@ -5608,10 +5608,10 @@ class Steps extends Creative_Widget_Base {
 						<!-- ROW 2 TXT -->
 						<div class="crel-row">
 							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column">
-								<div class="elementor-column-wrap  elementor-element-populated">
+								<div class="crel-elementor-column-wrap  elementor-element-populated">
 									<div class="elementor-widget-wrap">
 										<div class="elementor-element elementor-widget elementor-widget-text-editor">
-											<div class="elementor-widget-container"><#
+											<div class="crel-elementor-widget-container"><#
 													var desc_key = view.getRepeaterSettingKey( 'crel_steps__desc_text', 'crel_steps__list', index );
 													
 													view.addRenderAttribute( desc_key,	{
@@ -5635,10 +5635,10 @@ class Steps extends Creative_Widget_Base {
 						<!-- ROW 2 TXT -->
 						<div class="crel-row">
 							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column">
-								<div class="elementor-column-wrap  elementor-element-populated">
+								<div class="crel-elementor-column-wrap  elementor-element-populated">
 									<div class="elementor-widget-wrap">
 										<div class="elementor-element elementor-widget elementor-widget-text-editor">
-											<div class="elementor-widget-container"><#
+											<div class="crel-elementor-widget-container"><#
 													var desc_key = view.getRepeaterSettingKey( 'crel_steps__desc_text', 'crel_steps__list', index );
 													
 													view.addRenderAttribute( desc_key,	{
@@ -5660,7 +5660,7 @@ class Steps extends Creative_Widget_Base {
 						<!-- ROW 1 IMG -->
 						<div class="crel-row">
 							
-							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column"><div class="elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="elementor-widget-container"><div class="crel-steps-img elementor-image"><#
+							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column"><div class="crel-elementor-column-wrap  elementor-element-populated"><div class="elementor-widget-wrap"><div class="elementor-element elementor-widget elementor-widget-image"><div class="crel-elementor-widget-container"><div class="crel-steps-img elementor-image"><#
 									if ( item.crel_steps__caption_text ) { #>
 										<figure class="crel-caption">		    <#
 									}
@@ -5687,10 +5687,10 @@ class Steps extends Creative_Widget_Base {
 						<!-- ROW 2 TXT -->
 						<div class="crel-row">
 							<div class="elementor-element elementor-column crel-step-body__col-both elementor-col-100 elementor-top-column">
-								<div class="elementor-column-wrap  elementor-element-populated">
+								<div class="crel-elementor-column-wrap  elementor-element-populated">
 									<div class="elementor-widget-wrap">
 										<div class="elementor-element elementor-widget elementor-widget-text-editor">
-											<div class="elementor-widget-container"><#
+											<div class="crel-elementor-widget-container"><#
 													var desc_key = view.getRepeaterSettingKey( 'crel_steps__desc_text', 'crel_steps__list', index );
 													
 													view.addRenderAttribute( desc_key,	{

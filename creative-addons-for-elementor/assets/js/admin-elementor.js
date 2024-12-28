@@ -202,9 +202,9 @@ jQuery(document).ready(function($) {
 			// define selector for image Guide
 			ui: function () {
                 let selector = $element.__super__.ui.call(this);
-				selector.spotHandle = '> .elementor-widget-container .crel-image-guide__spot';
-				selector.listItemHandle = '> .elementor-widget-container .crel-image-guide__list-item';
-				selector.imageHandle = '> .elementor-widget-container .crel-image-guide__image-spots';
+				selector.spotHandle = '> .crel-elementor-widget-container .crel-image-guide__spot';
+				selector.listItemHandle = '> .crel-elementor-widget-container .crel-image-guide__list-item';
+				selector.imageHandle = '> .crel-elementor-widget-container .crel-image-guide__image-spots';
                 return selector;
             },
 			
@@ -416,8 +416,8 @@ jQuery(document).ready(function($) {
 			// define selectors for events 
 			ui: function () {
                 let selector = $element.__super__.ui.call(this);
-				selector.imgHandle = '> .elementor-widget-container .crel-text-image-img';
-				selector.textHandle = '> .elementor-widget-container .crel-text-image-body';
+				selector.imgHandle = '> .crel-elementor-widget-container .crel-text-image-img';
+				selector.textHandle = '> .crel-elementor-widget-container .crel-text-image-body';
                 return selector;
             },
 			
@@ -546,7 +546,7 @@ jQuery(document).ready(function($) {
 			// define selectors for events 
 			ui: function () {
                 let selector = $element.__super__.ui.call(this);
-				selector.preHandle = '> .elementor-widget-container pre';
+				selector.preHandle = '> .crel-elementor-widget-container pre';
                 return selector;
             },
 			
